@@ -40,7 +40,7 @@ export class AppModule {
       }
     }
 
-    let initState: AppState = { stories: { storiesList: []} };
+    let initState: AppState = { stories: { storiesList: [], topStories: []} };
     if (typeof sessionStorage !== 'undefined' && sessionStorage.getItem('stories')) {
       // @ts-ignore
       initState = {stories: JSON.parse(sessionStorage.getItem('stories'))};

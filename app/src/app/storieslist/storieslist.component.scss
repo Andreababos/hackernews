@@ -1,0 +1,24 @@
+h1{
+    text-align: center;
+}
+.cards{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.card{
+    border-radius: 1rem;
+    background-color: #FEFEFE;
+    margin: 1rem;
+    max-width: 400px;
+    .illustration{
+        min-height: 200px;
+        background-position: center;
+        background-size: cover;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+    }
+    .content-wrapper{
+        padding: 1rem;
+    }
+}

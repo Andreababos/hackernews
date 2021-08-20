@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgRedux } from '@angular-redux/store';
 import { AppState } from '../store';
-import { getTopStories } from '../store/stories/actions';
 import { selectStories } from '../store/stories/selectors';
 import { Story } from '../store/stories';
 
@@ -22,4 +21,7 @@ export class StorieslistComponent implements OnInit {
     this.stories = selectStories(this.ngRedux.getState())
   }
 
+  public navigateTo(url: string | undefined){
+    console.log(url)
+  }
 }

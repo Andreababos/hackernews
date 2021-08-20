@@ -1,1 +1,11 @@
-<p>stories works!</p>
+<h1>Todays top news</h1>
+<div class="cards">
+    <div *ngFor="let story of stories" class="card" (click)="navigateTo(story.url)">
+        <div class="illustration" [ngStyle]="{'background-image': 'url(http://lorempixel.com/400/200/technics/)'}"></div>
+        <div class="content-wrapper">
+            <h3>{{ story.title }}</h3>
+            <p>by <i>{{ story.by }} on {{ story.time | date: 'mediumDate' }}</i></p>
+            <span>{{ story.score }}</span>
+        </div>
+    </div>
+</div>
