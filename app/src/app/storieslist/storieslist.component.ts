@@ -18,10 +18,12 @@ export class StorieslistComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.stories = selectStories(this.ngRedux.getState())
+    this.ngRedux.select(selectStories()).subscribe( (data: Story[]) => {
+      this.stories = data;
+    })
   }
 
-  public navigateTo(url: string | undefined){
-    console.log(url)
+  public navigateToExternalUrl(url: string | undefined = ''){
+    window.location.href = url ;
   }
 }

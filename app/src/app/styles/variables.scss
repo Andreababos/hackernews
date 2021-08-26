@@ -19,10 +19,13 @@ $light-grey-3: #F5F6F6;
 $light-white: #FBFBFB;
 $light-white-2: #F5F5F5;
 
+$green: #8DB48E;
+$dark-green: #4D724D;
 
 // Main usage
 $primary-color: $black;
-$accent-color: $black;
+$accent-color: $green;
+$accent-color-dark: $dark-green;
 $background-color: $light-white-2;
 $text-color: $black;
 $secondary-text-color: $secondary-black;

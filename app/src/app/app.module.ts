@@ -9,14 +9,15 @@ import { appReducer, AppState } from './store';
 import { AppInitAction } from './store/actions';
 import { createEffectsMiddleware } from './store/middleware';
 import { storiesEffects } from './store/stories/effects';
+import { usersEffects } from './store/users/effects';
 import { StorieslistComponent } from './storieslist/storieslist.component';
-import { StoryComponent } from './story/story.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StorieslistComponent,
-    StoryComponent
+    UserComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,13 +41,13 @@ export class AppModule {
       }
     }
 
-    let initState: AppState = { stories: { storiesList: [], topStories: []} };
+    let initState: AppState = { stories: { storiesList: [], topStories: []}, users: {users: []} };
     if (typeof sessionStorage !== 'undefined' && sessionStorage.getItem('stories')) {
       // @ts-ignore
       initState = {stories: JSON.parse(sessionStorage.getItem('stories'))};
     }
 
-    ngRedux.configureStore(appReducer, initState, [ thunk, createEffectsMiddleware([ storiesEffects ])], enhancer);
+    ngRedux.configureStore(appReducer, initState, [ thunk, createEffectsMiddleware([ storiesEffects, usersEffects ])], enhancer);
     ngRedux.dispatch(AppInitAction());
 
     ngRedux.subscribe(() => {

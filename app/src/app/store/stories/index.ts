@@ -44,8 +44,12 @@ export function storiesReducer(state: StoriesState = initialStoriesState, action
             let stories: Story[] = [ ...state.storiesList ];
             const story: Story | undefined = stories.find(story => story.id === action.payload.id);
             if(!story){
-                stories.push(action.payload as Story);
+                let s = action.payload;
+                s.time = new Date(s.time *1000);
+                stories.push(s as Story);
             }
+            //@ts-ignore
+            stories.sort((a,b) => (a.score < b.score) ? 1 : ((a.score > b.score) ? -1 : 0))
             return { ...state, storiesList: stories};
         }
         default:
